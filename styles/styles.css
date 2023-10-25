@@ -301,8 +301,12 @@ nav ul li:hover>a {
     width: 30px;
     height: 30px;
     border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
     border: 2px solid var(--default-clr);
     outline: 2px solid var(--primary-clr);
+    position: relative;
+    display: block;
 }
 
 .account .profile img {
@@ -312,7 +316,9 @@ nav ul li:hover>a {
     object-position: center center;
     -o-object-fit: cover;
     -o-object-position: center center;
-    border-radius: 100%;
+    border-radius: inherit;
+    -webkit-border-radius: inherit;
+    -moz-border-radius: inherit;
 }
 
 .account button {
