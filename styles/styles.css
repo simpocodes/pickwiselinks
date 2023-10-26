@@ -12,10 +12,6 @@
     -o-transition: .3s;
 }
 
-html {
-    color-scheme: dark !important;
-}
-
 :root {
     --default-clr: #f5f6f5;
     --banner-clr: #e3e3e3ff;
@@ -28,6 +24,57 @@ html {
     --box-shadow: 0 24px 134px rgb(219, 214, 214);
     --box-shadow-black: 0 24px 134px black;
 }
+
+html {
+    color-scheme: dark !important;
+}
+
+
+.mybody {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.page-loader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--default-clr);
+    z-index: 10000;
+}
+
+.loader {
+    width: 150px;
+    height: 8px;
+    background-color: var(--banner-clr);
+    border-radius: .3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+
+}
+
+.loader span {
+    display: block;
+    width: 10px;
+    height: 100%;
+    background-color: var(--primary-clr);
+    border-radius: inherit;
+    animation: fill-width 9s 1s both;
+    -webkit-animation: fill-width 9s 1s both;
+    -moz-animation: fill-width 9s 1s both;
+    -o-animation: fill-width 9s 1s both;
+}
+
+
 
 /**====================== variables ==============*/
 .bg-default {
@@ -48,7 +95,7 @@ html {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .d-block {
@@ -110,6 +157,27 @@ html {
     outline: 2px solid green !important;
     color: var(--primary-clr);
 }
+
+.blur-10 {
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.loading {
+    background: rgba(128, 128, 128, 0.165);
+    animation: loading 2s infinite;
+    -webkit-animation: loading 2s infinite;
+    -moz-animation: loading 2s infinite;
+    -o-animation: loading 2s infinite;
+}
+
+
 
 
 /*----------------------- End of grobal varibales */
@@ -706,7 +774,7 @@ nav ul li:hover>a {
     text-transform: capitalize;
     font-weight: unset;
     border-radius: inherit;
-    padding: .3rem 0;
+    padding: .6rem 0;
 }
 
 
@@ -1070,7 +1138,85 @@ footer {
 
 
 /**===================== keyframes =================*/
-/* ------------------ fromTop eg "the sticky header"*/
+
+
+/* ============================================================== */
+@keyframes fill-width {
+    to {
+        width: 100%;
+    }
+}
+
+@-webkit-keyframes fill-width {
+    to {
+        width: 100%;
+    }
+}
+
+@-moz-keyframes fill-width {
+    to {
+        width: 100%;
+    }
+}
+
+@-o-keyframes fill-width {
+    to {
+        width: 100%;
+    }
+}
+
+/* -------------------------------------------------------------- */
+
+
+/** =================================================================== */
+@keyframes loading {
+    0% {
+        opacity: .1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+
+}
+
+@-webkit-keyframes loading {
+    0% {
+        opacity: .1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+
+}
+
+@-moz-keyframes loading {
+    0% {
+        opacity: .1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+@-o-keyframes loading {
+    0% {
+        opacity: .1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------------------------------------ */
+
+/** ------------------ fromTop eg "the sticky header"*/
 
 @keyframes fromTop {
     from {

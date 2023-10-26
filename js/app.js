@@ -5,7 +5,104 @@ let nav_links = document.querySelectorAll(' header nav ul li a')
 let menu_close = document.querySelector(' header nav .close')
 let product_category_links = document.querySelectorAll('.nav-product-category ul li a')
 let product_price_range = document.querySelectorAll('.product-price-range a')
+let body = document.querySelector('body');
+let pageLoader = document.querySelector('.page-loader');
+body.classList.add('mybody')
+let loader_span = document.querySelector('.loader span');
 
+//*==================product-container before loading
+document.querySelectorAll('.product').forEach(eachproduct => {
+    Array.from(eachproduct.children).forEach(e => {
+        e.classList.add('opacity-0')
+    })
+    eachproduct.classList.add('loading')
+})
+//------------------- End of product-container before loading
+
+
+//*================== profile-image before loading
+document.querySelectorAll('.profile').forEach(eachprofile => {
+    Array.from(eachprofile.children).forEach(e => {
+        e.classList.add('opacity-0')
+    })
+    eachprofile.classList.add('loading')
+})
+//--------------------- End of profile-image before loading
+
+
+//*================== all images  before loading
+document.querySelectorAll('img').forEach(eachImg => {
+    eachImg.classList.add('blur-10')
+
+})
+//--------------------- End of all images  before loading
+
+//*================== background-image url before loading
+document.querySelectorAll('.img').forEach(eachImg => {
+    eachImg.classList.add('blur-10')
+
+})
+//--------------------- End of background-image url before loading
+
+
+//*================== zoom buttons before loading
+document.querySelectorAll('.zoom-product').forEach(eachzoombutton => {
+    eachzoombutton.classList.add('d-none')
+})
+//--------------------- End of zoom buttons before loading
+
+
+//*============ remove loader 
+function removeLoader() {
+    body.classList.remove('mybody')
+    pageLoader.classList.add('d-none')
+}
+setTimeout(removeLoader, 8200)
+
+//-------------end of remove loader 
+
+
+window.addEventListener('load', loadsuccess => {
+
+    //*================== profile-image after loading
+    document.querySelectorAll('.profile').forEach(eachprofile => {
+        Array.from(eachprofile.children).forEach(e => {
+            e.classList.remove('opacity-0')
+        })
+        eachprofile.classList.remove('loading')
+    })
+    //--------------------- End profile-image after loading
+
+    //*================== product-container after loading
+    document.querySelectorAll('.product').forEach(eachproduct => {
+        Array.from(eachproduct.children).forEach(e => {
+            e.classList.remove('opacity-0')
+        })
+        eachproduct.classList.remove('loading')
+    })
+    //--------------------- End of product-container after loading
+
+    //*================== all images  after loading
+    document.querySelectorAll('img').forEach(eachImg => {
+        eachImg.classList.remove('blur-10')
+
+    })
+    //--------------------- End of all images after loading
+
+    //*================== all background-image url  after loading
+    document.querySelectorAll('.img').forEach(eachImg => {
+        eachImg.classList.remove('blur-10')
+
+    })
+    //--------------------- End of all background-image url  after loading
+
+    //*================== all zoom buttons url  after loading
+    document.querySelectorAll('.zoom-product').forEach(eachzoombutton => {
+        eachzoombutton.classList.remove('d-none')
+    })
+    //--------------------- End of all zoom buttons url  after loading
+
+})
 
 menu.addEventListener('click', shownav => {
     nav.classList.add('nav-flex')
