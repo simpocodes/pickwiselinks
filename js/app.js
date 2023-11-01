@@ -1,3 +1,4 @@
+let empty = document.querySelector('.empty')
 let menu = document.querySelector('.menu')
 let header = document.querySelector(' header')
 let nav = document.querySelector(' header nav')
@@ -9,6 +10,8 @@ let body = document.querySelector('body');
 let pageLoader = document.querySelector('.page-loader');
 body.classList.add('mybody')
 let loader_span = document.querySelector('.loader span');
+
+
 
 //*==================product-container before loading
 document.querySelectorAll('.product').forEach(eachproduct => {
@@ -33,6 +36,7 @@ document.querySelectorAll('.profile').forEach(eachprofile => {
 //*================== all images  before loading
 document.querySelectorAll('img').forEach(eachImg => {
     eachImg.classList.add('blur-10')
+    // eachImg.classList.add('d-none')
 
 })
 //--------------------- End of all images  before loading
@@ -187,3 +191,56 @@ product_price_range.forEach(each_price => {
     })
 })
 //----------- End of price range
+
+
+//*================== zoom product
+let targetImgUrl;
+let newImgContainer;
+let newImg;
+let closeZoomed;
+document.querySelectorAll('.zoom-product').forEach(eachzoombutton => {
+    eachzoombutton.addEventListener('click', zoom => {
+
+        empty.classList.remove('d-none')
+        Array.from(zoom.target.parentElement.children).forEach(child => {
+            if (child.getAttribute('class').trim().toLowerCase() == 'product-img') {
+                Array.from(child.children).forEach(targetImg => {
+                    targetImgUrl = targetImg.getAttribute('src');
+                    newImgContainer = document.createElement('div');
+                    newImgContainer.setAttribute('class', 'zoomed-img')
+                    newImg = document.createElement('img');
+                    newImg.setAttribute('src', targetImgUrl)
+                    newImgContainer.appendChild(newImg)
+                    closeZoomed = document.createElement('span')
+                    closeZoomed.innerText = 'x'
+                    closeZoomed.setAttribute('class', 'close')
+                    newImgContainer.appendChild(closeZoomed)
+                    empty.appendChild(newImgContainer);
+                    empty.style.marginTop = document.documentElement.scrollTop - 10 + 'px'
+
+
+                    //*=====closeZoomed
+                    closeZoomed.addEventListener('click', close_zoomed_img => {
+                        empty.style.marginTop = ""
+
+                        empty.classList.add('d-none')
+                        empty.removeChild(newImgContainer);
+
+                    })
+                    window.addEventListener('scroll', sc => {
+                        empty.style.marginTop = ""
+
+                        empty.classList.add('d-none')
+                        empty.innerHTML = ""
+                    })
+                    // ..............................
+
+
+                })
+            }
+        })
+
+    })
+})
+//--------------------- End of zoom product
+
