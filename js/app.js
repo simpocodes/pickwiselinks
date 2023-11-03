@@ -11,7 +11,7 @@ let pageLoader = document.querySelector('.page-loader');
 body.classList.add('mybody')
 let loader_span = document.querySelector('.loader span');
 
-
+// ...
 
 //*==================product-container before loading
 document.querySelectorAll('.product').forEach(eachproduct => {
