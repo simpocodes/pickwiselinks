@@ -41,7 +41,7 @@ body {
     position: relative;
 }
 
-.page-loader {
+/* .page-loader {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -49,9 +49,9 @@ body {
     left: 0;
     background-color: var(--default-clr);
     z-index: 10000;
-}
+} */
 
-.loader {
+/* .loader {
     width: 150px;
     height: 3px;
     background-color: var(--banner-clr);
@@ -76,7 +76,7 @@ body {
     -webkit-animation: fill-width 9s 1s both;
     -moz-animation: fill-width 9s 1s both;
     -o-animation: fill-width 9s 1s both;
-}
+} */
 
 
 
@@ -173,13 +173,13 @@ body {
     opacity: 0;
 }
 
-.loading {
+/* .loading {
     background: rgba(128, 128, 128, 0.165);
     animation: loading 2s infinite;
     -webkit-animation: loading 2s infinite;
     -moz-animation: loading 2s infinite;
     -o-animation: loading 2s infinite;
-}
+} */
 
 .empty {
     width: 100%;
@@ -549,7 +549,10 @@ nav ul li:hover>a {
     float: right;
     width: 40%;
     height: 100%;
-    background-image: url(../imgs/img\ \(3\).jpg);
+    /* background-image: url(../imgs/img\ \(3\).jpg); */
+    /* background-image: url("https: //img.freepik.com/free-photo/perplexed-worried-dark-skinned-beautful-girl-holds-smart-phone-stares-with-surprised-expression_273609-18435.jpg?w=740&t=st=1698989942~exp=1698990542~hmac=0a045391c9943f088b7876d86e4bb85ee3ec13eb639f3490847f86f0c64babdf"); */
+    background-image: url("https://img.freepik.com/free-photo/perplexed-worried-dark-skinned-beautiful-girl-holds-smart-phone-stares-with-surprised-expression_273609-18435.jpg?w=740&t=st=1698989942~exp=1698990542~hmac=0a045391c9943f088b7876d86e4bb85ee3ec13eb639f3490847f86f0c64babdf");
+    /* background-image: url("https://img.freepik.com/free-photo/cheerful-young-african-woman-holding-shopping-bags_171337-6961.jpg?size=626&ext=jpg&uid=R123636355&ga=GA1.1.983637750.1698989749&semt=ais"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
