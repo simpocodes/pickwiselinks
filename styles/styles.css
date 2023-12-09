@@ -15,7 +15,8 @@
 :root {
     --default-clr: #fff;
     --banner-clr: #e3e3e3ff;
-    --primary-clr: green;
+    /* --primary-clr: green; */
+    --primary-clr: rgb(6, 133, 69);
     --subprimary-clr: rgba(0, 128, 0, 0.116);
     --secondary-clr: blue;
     --font-size: 1rem;
@@ -27,7 +28,6 @@
 
 html {
     color-scheme: dark !important;
-    scroll-behavior: smooth;
 }
 
 body {
@@ -41,42 +41,113 @@ body {
     position: relative;
 }
 
-/* .page-loader {
+.page-loader {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--default-clr);
+    background-color: #212529;
     z-index: 10000;
-} */
+    opacity: .9;
+}
 
-/* .loader {
-    width: 150px;
-    height: 3px;
-    background-color: var(--banner-clr);
-    border-radius: .3rem;
+.loader {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-
+    width: 9px;
+    height: 9px;
 }
 
-.loader span {
-    display: block;
-    width: 10px;
-    height: 100%;
-    background-color: var(--primary-clr);
-    border-radius: inherit;
-    animation: fill-width 9s 1s both;
-    -webkit-animation: fill-width 9s 1s both;
-    -moz-animation: fill-width 9s 1s both;
-    -o-animation: fill-width 9s 1s both;
-} */
+.loader div {
+    position: absolute;
+    width: 50%;
+    height: 150%;
+    background: var(--primary-clr);
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+    animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
+}
+
+.loader div:nth-child(1) {
+    --delay: 0.1;
+    --rotation: 36;
+    --translation: 150;
+}
+
+.loader div:nth-child(2) {
+    --delay: 0.2;
+    --rotation: 72;
+    --translation: 150;
+}
+
+.loader div:nth-child(3) {
+    --delay: 0.3;
+    --rotation: 108;
+    --translation: 150;
+}
+
+.loader div:nth-child(4) {
+    --delay: 0.4;
+    --rotation: 144;
+    --translation: 150;
+}
+
+.loader div:nth-child(5) {
+    --delay: 0.5;
+    --rotation: 180;
+    --translation: 150;
+}
+
+.loader div:nth-child(6) {
+    --delay: 0.6;
+    --rotation: 216;
+    --translation: 150;
+}
+
+.loader div:nth-child(7) {
+    --delay: 0.7;
+    --rotation: 252;
+    --translation: 150;
+}
+
+.loader div:nth-child(8) {
+    --delay: 0.8;
+    --rotation: 288;
+    --translation: 150;
+}
+
+.loader div:nth-child(9) {
+    --delay: 0.9;
+    --rotation: 324;
+    --translation: 150;
+}
+
+.loader div:nth-child(10) {
+    --delay: 1;
+    --rotation: 360;
+    --translation: 150;
+}
+
+@keyframes spinner-fzua35 {
+
+    0%,
+    10%,
+    20%,
+    30%,
+    50%,
+    60%,
+    70%,
+    80%,
+    90%,
+    100% {
+        transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+    }
+
+    50% {
+        transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));
+    }
+}
 
 
 
@@ -158,7 +229,7 @@ body {
 }
 
 .active-price-range {
-    outline: 2px solid green !important;
+    outline: 2px solid var(--primary-clr) !important;
     color: var(--primary-clr);
 }
 
@@ -171,6 +242,11 @@ body {
 
 .opacity-0 {
     opacity: 0;
+}
+
+.bubble {
+    /* outline: 3px solid rgba(6, 133, 70, 0.774);
+    border: 2px solid rgba(6, 133, 70, 0.292); */
 }
 
 /* .loading {
@@ -191,7 +267,7 @@ body {
 }
 
 .zoomed-img {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -263,15 +339,33 @@ li {
 }
 
 /*----------------------- End of common elements */
+.check_online_status {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    /* background-color: green; */
+    z-index: 10;
+}
 
-
+#internet_status {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    z-index: 10000000;
+    width: 100%;
+    height: 25px;
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /**============= container-fluid =============== */
 .container-fluid {
     width: 100%;
     max-width: 1300px;
     height: auto;
-    padding: .1rem;
     margin: auto;
     position: relative;
     overflow: hidden;
@@ -539,6 +633,7 @@ nav ul li:hover>a {
     width: min(200px, 100%);
     color: #fff;
     text-align: center;
+    font-weight: unset;
 }
 
 .side-banner {
@@ -549,10 +644,8 @@ nav ul li:hover>a {
     float: right;
     width: 40%;
     height: 100%;
-    /* background-image: url(../imgs/img\ \(3\).jpg); */
-    /* background-image: url("https: //img.freepik.com/free-photo/perplexed-worried-dark-skinned-beautful-girl-holds-smart-phone-stares-with-surprised-expression_273609-18435.jpg?w=740&t=st=1698989942~exp=1698990542~hmac=0a045391c9943f088b7876d86e4bb85ee3ec13eb639f3490847f86f0c64babdf"); */
-    background-image: url("https://img.freepik.com/free-photo/perplexed-worried-dark-skinned-beautiful-girl-holds-smart-phone-stares-with-surprised-expression_273609-18435.jpg?w=740&t=st=1698989942~exp=1698990542~hmac=0a045391c9943f088b7876d86e4bb85ee3ec13eb639f3490847f86f0c64babdf");
-    /* background-image: url("https://img.freepik.com/free-photo/cheerful-young-african-woman-holding-shopping-bags_171337-6961.jpg?size=626&ext=jpg&uid=R123636355&ga=GA1.1.983637750.1698989749&semt=ais"); */
+    /* background-image: url(../imgs/offlinebanner.jpg); */
+    /* background-image: url("https://img.freepik.com/free-photo/perplexed-worried-dark-skinned-beautiful-girl-holds-smart-phone-stares-with-surprised-expression_273609-18435.jpg?w=740&t=st=1698989942~exp=1698990542~hmac=0a045391c9943f088b7876d86e4bb85ee3ec13eb639f3490847f86f0c64babdf"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -583,10 +676,11 @@ nav ul li:hover>a {
     display: flex;
     flex-direction: row;
     gap: .3rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    /* flex-wrap: wrap; */
+    justify-content: flex-start;
     align-items: center;
     min-height: 50px;
+    overflow-x: scroll;
 }
 
 .nav-product-category ul li {
@@ -696,9 +790,13 @@ nav ul li:hover>a {
     display: flex;
     flex-direction: row;
     gap: .3rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    /* flex-wrap: wrap; */
+    justify-content: flex-start;
     align-items: center;
+    overflow-x: scroll;
+    /* padding-left: 2rem; */
+    background-color: transparent;
+    padding: .2rem;
 }
 
 .products-container .products-category .product-price-range a {
@@ -714,6 +812,7 @@ nav ul li:hover>a {
     position: relative;
     outline: 2px solid transparent;
     font-weight: 500;
+    min-width: 100px;
 }
 
 .products-container .products-category .product-price-range a span {
@@ -883,6 +982,45 @@ nav ul li:hover>a {
     text-align: center;
 }
 
+.products-container .more-products {
+    margin-top: 3rem;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: .3rem;
+    flex-wrap: wrap;
+    gap: 1rem .3rem;
+}
+
+.products-container .more-products span {
+
+    width: 40px;
+    height: 30px;
+    border: 1px solid var(--primary-clr);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: .3rem;
+}
+
+.products-container .more-products span:hover {
+    background-color: var(--primary-clr);
+    color: #fff;
+    cursor: pointer;
+}
+
+.products-container .active {
+    background-color: var(--primary-clr);
+    color: #fff;
+    cursor: pointer;
+    outline: 4px solid rgba(6, 133, 70, 0.774);
+    border: 2px solid rgba(6, 133, 70, 0.292);
+}
+
 
 
 
@@ -891,11 +1029,9 @@ footer {
     height: 400px;
 }
 
-
-
-
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
+    height: .2px;
     background-color: var(--subprimary-clr);
 }
 
@@ -903,11 +1039,15 @@ footer {
     background-color: rgb(4, 48, 4);
     border: 2px solid var(--primary-clr);
     border-radius: .3rem;
+    visibility: hidden;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--primary-clr);
     border: 2px solid rgb(4, 48, 4);
+    visibility: visible;
+    transition: .3s;
+
 }
 
 
@@ -920,6 +1060,10 @@ footer {
 
 /*--------------------- small screens */
 @media screen and (min-width:0px) {
+    .zoomed-img {
+        width: 100%;
+    }
+
     header {
         background-color: var(--default-clr);
     }
@@ -1002,6 +1146,10 @@ footer {
 
 /*--------------------- medium screens */
 @media screen and (min-width:425px) {
+    .zoomed-img {
+        width: 70%;
+    }
+
     nav {
         flex-direction: row;
         box-shadow: unset;
@@ -1066,6 +1214,10 @@ footer {
 
 /*--------------------- large screens */
 @media screen and (min-width:768px) {
+    .zoomed-img {
+        width: unset;
+    }
+
     header {
         box-shadow: unset;
         background-color: var(--banner-clr);

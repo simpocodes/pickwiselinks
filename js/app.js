@@ -12,6 +12,40 @@ body.classList.add('mybody')
 let loader_span = document.querySelector('.loader span');
 
 // ...
+//*==================== internet status
+let online = navigator.onLine;
+let check_online_status = document.querySelector('.check_online_status')
+let internet_status = document.querySelector('#internet_status')
+let side_banner = document.querySelector('.side-banner');
+
+function hide_internet_status() {
+    check_online_status.classList.add('d-none')
+    // alert('hey')
+}
+function show_internet_status() {
+
+    // window.addEventListener('load', loaded => {
+    if (online) {
+        // online
+        side_banner.style.backgroundImage = 'url("https://img.freepik.com/free-photo/perplexed-worried-dark-skinned-beautiful-girl-holds-smart-phone-stares-with-surprised-expression_273609-18435.jpg?w=740&t=st=1698989942~exp=1698990542~hmac=0a045391c9943f088b7876d86e4bb85ee3ec13eb639f3490847f86f0c64babdf")';
+
+        internet_status.innerHTML = 'online'
+        internet_status.style.backgroundColor = " rgb(6, 133, 69)"
+
+    } else {
+        // offline
+        side_banner.style.backgroundImage = "url(../imgs/offlinebanner.jpg)"
+
+        internet_status.innerHTML = 'offline'
+        internet_status.style.backgroundColor = "rgb(41, 37, 37)"
+    }
+    // })
+
+}
+setTimeout(show_internet_status, 2000)
+
+setInterval(hide_internet_status, 5000)
+//----------------------End of internet status
 
 //*==================product-container before loading
 document.querySelectorAll('.product').forEach(eachproduct => {
@@ -61,7 +95,7 @@ function removeLoader() {
     body.classList.remove('mybody')
     pageLoader.classList.add('d-none')
 }
-setTimeout(removeLoader, 8200)
+setTimeout(removeLoader, 1000)
 
 //-------------end of remove loader 
 
@@ -244,3 +278,48 @@ document.querySelectorAll('.zoom-product').forEach(eachzoombutton => {
 })
 //--------------------- End of zoom product
 
+//*========================= buy button
+let buybtn = document.querySelectorAll('.buy');
+buybtn.forEach(each_buy_btn => {
+    each_buy_btn.addEventListener('click', c => {
+        c.preventDefault()
+    })
+
+})
+
+//---------------------- End of buy button
+
+//*======================= more products buttons
+let more_products = document.querySelectorAll('.more-products span');
+
+more_products.forEach(each_more_product_btn => {
+    // each_more_product_btn.classList.add('no')
+    let inners = each_more_product_btn.innerHTML;
+    // console.log(more_products.length)
+    each_more_product_btn.addEventListener('click', c => {
+        c.target.classList.toggle('active')
+        let btn_number = c.target.innerHTML.trim();
+        // console.log(more_products.length)
+        for (let a = 0; a < more_products.length; a++) {
+            // console.log(more_products[a].classList.add('hey'))
+            console.log(more_products[a].innerHTML)
+            if (more_products[a].innerHTML == btn_number) {
+                more_products[a].classList.add('bubble')
+
+            } else {
+                more_products[a].classList = ''
+
+            }
+
+        }
+
+        // console.log(inners)
+
+
+
+
+
+    })
+})
+
+//------------------------ End dof products buttons
