@@ -140,7 +140,108 @@ window.addEventListener('load', loadsuccess => {
     })
     //--------------------- End of all zoom buttons url  after loading
 
+    //========== add and remove next product button on screen change
+    if (loadsuccess.currentTarget.innerWidth < 200) {
+        for (let i = 2; i < 10; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.add('d-none')
+        }
+
+    } else {
+        for (let i = 2; i < 10; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.remove('d-none')
+        }
+    }
+
+    if (loadsuccess.currentTarget.innerWidth < 290) {
+        for (let i = 2; i < 8; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.add('d-none')
+        }
+
+    } else {
+        for (let i = 2; i < 8; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.remove('d-none')
+        }
+    }
+
+    if (loadsuccess.currentTarget.innerWidth < 380) {
+        for (let i = 2; i < 6; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.add('d-none')
+        }
+
+    } else {
+        for (let i = 2; i < 6; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.remove('d-none')
+        }
+    }
+
+    if (loadsuccess.currentTarget.innerWidth < 480) {
+        for (let i = 2; i < 4; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.add('d-none')
+        }
+
+    } else {
+        for (let i = 2; i < 4; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.remove('d-none')
+        }
+    }
+
+    //------ End add and remove next product button on screen change
+
 })
+window.addEventListener('resize', resized => {
+    // console.log(resized.target.innerWidth)
+    //========== add and remove next product button on screen change
+    if (resized.target.innerWidth < 200) {
+        for (let i = 2; i < 10; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.add('d-none')
+        }
+
+    } else {
+        for (let i = 2; i < 10; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.remove('d-none')
+        }
+    }
+
+    if (resized.target.innerWidth < 290) {
+        for (let i = 2; i < 8; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.add('d-none')
+        }
+
+    } else {
+        for (let i = 2; i < 8; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.remove('d-none')
+        }
+    }
+
+    if (resized.target.innerWidth < 380) {
+        for (let i = 2; i < 6; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.add('d-none')
+        }
+
+    } else {
+        for (let i = 2; i < 6; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.remove('d-none')
+        }
+    }
+
+    if (resized.target.innerWidth < 480) {
+        for (let i = 2; i < 4; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.add('d-none')
+        }
+
+    } else {
+        for (let i = 2; i < 4; i++) {
+            document.querySelectorAll('.more-products span')[document.querySelectorAll('.more-products span').length - i].classList.remove('d-none')
+        }
+    }
+
+    //------ End add and remove next product button on screen change
+
+})
+
+// function resizing() {
+//     alert('resss')
+// }
 
 menu.addEventListener('click', shownav => {
     nav.classList.add('nav-flex')
@@ -293,16 +394,11 @@ buybtn.forEach(each_buy_btn => {
 let more_products = document.querySelectorAll('.more-products span');
 
 more_products.forEach(each_more_product_btn => {
-    // each_more_product_btn.classList.add('no')
     let inners = each_more_product_btn.innerHTML;
-    // console.log(more_products.length)
     each_more_product_btn.addEventListener('click', c => {
         c.target.classList.toggle('active')
         let btn_number = c.target.innerHTML.trim();
-        // console.log(more_products.length)
         for (let a = 0; a < more_products.length; a++) {
-            // console.log(more_products[a].classList.add('hey'))
-            console.log(more_products[a].innerHTML)
             if (more_products[a].innerHTML == btn_number) {
                 more_products[a].classList.add('bubble')
 
