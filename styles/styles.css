@@ -244,19 +244,6 @@ body {
     opacity: 0;
 }
 
-.bubble {
-    /* outline: 3px solid rgba(6, 133, 70, 0.774);
-    border: 2px solid rgba(6, 133, 70, 0.292); */
-}
-
-/* .loading {
-    background: rgba(128, 128, 128, 0.165);
-    animation: loading 2s infinite;
-    -webkit-animation: loading 2s infinite;
-    -moz-animation: loading 2s infinite;
-    -o-animation: loading 2s infinite;
-} */
-
 .empty {
     width: 100%;
     height: 100vh;
@@ -317,6 +304,9 @@ button,
     font-size: var(--font-size);
     text-transform: capitalize;
     cursor: pointer;
+    font-weight: unset;
+    background-color: var(--primary-clr);
+    text-align: center;
 }
 
 button:hover,
@@ -534,14 +524,14 @@ nav ul li:hover>a {
     -moz-border-radius: inherit;
 }
 
-.account button {
+.account .btn {
     flex-grow: 1;
     background-color: transparent;
     outline: 2px solid var(--primary-clr);
     color: #000;
 }
 
-.account button:hover {
+.account .btn:hover {
     background-color: var(--primary-clr);
     color: #fff;
 }
@@ -1030,6 +1020,83 @@ footer {
     background-color: var(--banner-clr);
 }
 
+
+/* form */
+
+.form-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 1rem; */
+    background-color: var(--banner-clr);
+}
+
+.form-container .icon {
+    font-size: 5rem;
+    color: var(--primary-clr);
+}
+
+.form-container form {
+    /* background-color: var(--banner-clr); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: .5rem;
+    border-radius: .3rem;
+}
+
+.form-container form label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 95%;
+    gap: .2rem;
+    text-transform: capitalize;
+}
+
+.form-container form label input {
+    height: 40px;
+    border-radius: .3rem;
+    background-color: var(--default-clr);
+    /* background-color: transparent; */
+
+    border: none;
+    outline: 2px solid transparent;
+}
+
+.form-container form label input:focus {
+    outline: 2px solid var(--primary-clr);
+}
+
+.form-container form div {
+    width: 95%;
+    padding: .3rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-container .more_options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    font-size: .8rem;
+}
+
+.form-container .more_options .sign a {
+    color: var(--primary-clr);
+}
+
+
+
+/* end of form */
+
 ::-webkit-scrollbar {
     width: 7px;
     height: .2px;
@@ -1108,6 +1175,12 @@ footer {
     .account .profile-container .profile {
         width: 50px;
         height: 50px;
+    }
+
+    .account .btn {
+        background-color: var(--primary-clr);
+        color: #fff;
+        text-align: center;
     }
 
     .banner-content {
@@ -1209,6 +1282,12 @@ footer {
     .banner-content .btn {
         margin-top: 0;
         width: 40%;
+    }
+
+    .form-container form {
+        width: 400px;
+        box-shadow: inset 1px 1px 4px 1px #fff;
+
     }
 
 }
@@ -1477,15 +1556,23 @@ footer {
 /** ------------------ fromTop eg "the sticky header"*/
 
 @keyframes fromTop {
+
     from {
         transform: translateY(-100px);
         -webkit-transform: translateY(-100px);
         -moz-transform: translateY(-100px);
         -o-transform: translateY(-100px);
     }
+
+    /* jean */
+    /* umuhozajeanine35@gmail.com */
+    /* from {
+        top: -100px;
+    } */
+
 }
 
-@-webkit-keyframes fromTop {
+/* @-webkit-keyframes fromTop {
     from {
         transform: translateY(-100px);
         -webkit-transform: translateY(-100px);
@@ -1510,7 +1597,7 @@ footer {
         -moz-transform: translateY(-100px);
         -o-transform: translateY(-100px);
     }
-}
+} */
 
 /* ------------------ End of fromTop eg "the sticky header"*/
 
