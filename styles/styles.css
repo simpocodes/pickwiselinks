@@ -491,6 +491,7 @@ nav ul li:hover>a {
     color: var(--primary-clr);
 }
 
+/* .. */
 .account {
     padding: .3rem;
     width: 100%;
