@@ -305,9 +305,12 @@ button,
     text-transform: capitalize;
     cursor: pointer;
     font-weight: unset;
-    background-color: var(--primary-clr);
     text-align: center;
 
+}
+
+.sbt-btn {
+    background-color: var(--primary-clr);
 }
 
 button:hover,
@@ -971,7 +974,7 @@ nav ul li:hover>a {
     border-radius: inherit;
     padding: .6rem 0;
     text-align: center;
-    color: #fff;
+
 }
 
 .products-container .more-products {
